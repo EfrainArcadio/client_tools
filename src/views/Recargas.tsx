@@ -12,10 +12,15 @@ export default function Recargas() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Assuming hex_card is an input element with a name attribute set to "hex_card"
-    const hexCardValue = event.target.elements.hex_card.value
-    navigate(`/recargas/${hexCardValue}`);
-  };
+    const hexCardInput = document.querySelector('input[name="hex_card"]');
+    if (hexCardInput) {
+        const hexCardValue = hexCardInput.value;
+        console.log(hexCardValue)
+        navigate(`/recargas/${hexCardValue}`);
+    } else {
+        // Handle the case where the input element is not found
+    }
+};
   
   return (
     <div className=" container m-auto">
